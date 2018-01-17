@@ -15,6 +15,15 @@ public:
         time_t t = time(0); 
         cout << t << endl;
     }
+    static Clock * deleteInstance(){
+        if(instance != NULL){
+            delete instance;
+            instance = NULL;
+        }
+        return instance;
+    }
+	
+
 private:
     static Clock* instance;
     Clock(){}
@@ -23,10 +32,8 @@ private:
 Clock* Clock::instance = 0; 
 
 int main() {
-    Clock* instance1 = Clock::getInstance();
-    instance1 -> getTime();
-    Clock* instance2 = Clock::getInstance();
-    instance2 -> getTime();
-    cout << instance1 << endl;
-    cout << instance2 << endl;  
+	Clock* instance1 =Clock::getInstance();
+	instance1->getTime();
+	instance1->deleteInstance();
+	return 0;
 } 
