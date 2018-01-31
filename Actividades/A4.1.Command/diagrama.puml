@@ -1,0 +1,23 @@
+@startuml 
+
+class Client
+class Invoker
+class Command{
+    +void Execute();
+}
+class Receiver{
+    +void Action();
+}
+class ConcreteCommand{
+    -int state;
+    +void Execute();
+}
+note "Receiver.Action()" as N1
+
+Receiver <|-- Client
+ConcreteCommand <|..Client
+Receiver <|--ConcreteCommand
+Command <|--ConcreteCommand
+Command <--o Invoker
+ConcreteCommand -- N1
+@enduml
