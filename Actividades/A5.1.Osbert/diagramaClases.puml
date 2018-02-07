@@ -1,0 +1,46 @@
+@startuml 
+
+class Subastas{
+    -listaDeSubastas <Action> : Subasta
+    +getInfo(string author, )
+}
+class Galeria{
+    -Cuadros[] cuadros
+}
+class Cliente {
+    - bool: aceptaOferta 
+    + aceptaOferta();
+}
+class Osbert {
+    compra();
+    generaInfoVentaCuadro();
+    generaOferta(cuadrosubastas);
+}
+class Cuadro{
+    -precio : int
+    -pintor : string
+    -descripcion : string
+    -anioVenta : int
+}
+class Subasta{
+    - anioDeVenta : int
+    +calcPreciodeCompraMax(int anioDeVenta);
+    +getArtista() : string
+    +getAnio() :int 
+    +getPrecio() :float
+}
+class InfoVenta{
+    -string NombreVendedor
+    -string direccionVendedor
+    -int precioCompra
+}
+
+
+Osbert <-- Subastas
+Cuadro *-- InfoVenta
+Subastas o-- Subasta
+Galeria o-- Cuadro
+Osbert "1" - "1..*" Cliente
+(Osbert,Cliente)..Cuadro
+
+@enduml
