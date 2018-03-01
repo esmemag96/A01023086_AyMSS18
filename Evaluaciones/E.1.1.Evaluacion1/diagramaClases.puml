@@ -1,0 +1,70 @@
+@startuml 
+
+class Cliente{
+    -string ID
+    -string Nombre
+    -string Apellido
+    -string FormaDeContacto
+    -string Telefono
+    -string Email
+    -string Calle
+    -string Numero
+    -string Colonia
+
+    +getFunction()
+    +leerArchivo()
+    +obtenerInstancia()
+    +liberarMemoria()
+}
+class SMS {
+    -telefono:string
+    -texto:string
+
+    +SMS(telefono, texto)
+}
+
+class Email{
+    -from:string
+    -to:string
+    -subject:string
+    -body:string
+
+    +Email(from,to,subject,body)
+}
+
+class Llamada {
+    -telefono:string
+    -nombre:string
+    -mensaje:string
+
+    +Llamada(telefono,nombre,mensaje)
+}
+class Command{
+    +virtual void send()
+}
+
+class Receiver{
+    +mandaEmail()
+    +mandaSMS()
+    +llamaCliente()
+}
+
+class Invoker{
+    -Command
+    +void setCommand(Command)
+    +ButtonPessed
+}
+
+
+Cliente .> mandaEmail
+Cliente .> mandaSMS
+Cliente .> llamaCliente
+Command --> Email
+Command --> SMS
+Command --> Llamada
+Invoker o--> Command
+mandaEmail -> Receiver
+mandaSMS -> Receiver
+llamaCliente -> Receiver
+Cliente -> Receiver
+@enduml
