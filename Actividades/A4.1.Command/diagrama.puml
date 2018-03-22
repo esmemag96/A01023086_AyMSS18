@@ -3,8 +3,7 @@
 class Client
 class Invoker
 class Command{
-    +void Execute();
-}
+    +void Execute();}
 class Receiver{
     +void Action();
 }

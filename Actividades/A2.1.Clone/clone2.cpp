@@ -59,23 +59,6 @@ class Tablet:public ClaseHija<Tablet, Mobiles>{
 		}
 };
 
-class SmartPhone: public ClaseHija<SmartPhone, Mobiles>{
-	public: 
-		SmartPhone(string m, string s, string mod, string v, string c){
-			marca = &m;
-			SerialNum = &s;
-			modelo = mod;
-			version = v;
-			capacidad = c;
-		}
-		SmartPhone(){}
-		SmartPhone(const SmartPhone& m){
-			marca = m.marca;
-			SerialNum = m.SerialNum;
-			modelo = m.modelo;
-		}
-};
-
 class SmartWatch: public ClaseHija<SmartWatch, Mobiles>{
 		public: 
 		SmartWatch(string m, string s, string mod, string v, string c){
@@ -93,6 +76,25 @@ class SmartWatch: public ClaseHija<SmartWatch, Mobiles>{
 		}
 	
 };
+
+class SmartPhone: public ClaseHija<SmartPhone, Mobiles>{
+	public: 
+		SmartPhone(string m, string s, string mod, string v, string c){
+			marca = &m;
+			SerialNum = &s;
+			modelo = mod;
+			version = v;
+			capacidad = c;
+		}
+		SmartPhone(){}
+		SmartPhone(const SmartPhone& m){
+			marca = m.marca;
+			SerialNum = m.SerialNum;
+			modelo = m.modelo;
+		}
+};
+
+
 
 int main(){
 	Tablet* tablet1 = new Tablet("Apple", "0090992", "iPad", "Pro", "256");
