@@ -15,19 +15,19 @@ class Videogame{
         Videogame()=default; 
 
         void Start(){
-            cout << "Concepción..." << endl;
+            cout << "Concepción del juego" << endl;
         }
         void Design(){
-            cout << "Diseño..." << endl;
+            cout << "Diseño del juego" << endl;
         }
         void Planification(){
-            cout << "Planificación..." << endl; 
+            cout << "Planificación del juego" << endl; 
         }
         void Production(){
-            cout << "Producción..." << endl;
+            cout << "Producción del juego" << endl;
         }
         void Tests(){
-            cout << "Puebas de aceptación..." << endl;
+            cout << "Puebas del juego" << endl;
         }
         void setPrice(float p){
             gamePrice = p; 
@@ -101,7 +101,7 @@ class Music : public Learning{
 };
 
 
-template<class T>
+template<class It>
 class Iterator;
 
 template<class T>
@@ -208,24 +208,19 @@ public:
 
 };
 
-//COMMANDS
-
-class Command
-{
-public:
-	virtual void execute() = 0;
+class Command{
+    public:
+        virtual void execute() = 0;
 };
  
-// Receiver 
-class Accion 
-{
-public:
-	void undo() {
-		cout << "undo" << endl;
-	}
-	void redo() {
-		cout << "redo" << endl;
-	}
+class Accion {
+    public:
+        void undo() {
+            cout << "undo" << endl;
+        }
+        void redo() {
+            cout << "redo" << endl;
+        }
 }; 
 
 class undoCommand : public Command 
